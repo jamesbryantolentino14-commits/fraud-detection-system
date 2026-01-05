@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .profile-icon { cursor:pointer; float:right; font-size:20px; margin-left:10px; }
+    #adminModal { display:none; position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); background:#fff; padding:20px; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,0.2); z-index:1000; max-width:400px;}
+    #adminOverlay { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.4); z-index:900;}
+    #adminModal button { margin-top:15px; background:#eb5757; color:white; }
+  </style>
+</head>
+<body>
+
+<button class="back-btn" onclick="goBack()">← Back</button>
+
+<div class="sidebar">
+  <h3>Admin Portal</h3>
+  <button onclick="showAdminDashboard()">Dashboard</button>
+  <hr>
+  <button class="logout-btn" onclick="logout()">🚪 Logout</button>
+</div>
+
+<div class="content" id="adminContent">
+  <!-- Admin dashboard loaded here -->
+</div>
+
+<!-- Modal for Student Detail -->
+<div id="adminOverlay" onclick="hideAdminModal()"></div>
+<div id="adminModal">
+  <h3>Student Detail</h3>
+  <p><b>Name:</b> <span id="aName"></span></p>
+  <p><b>Age:</b> <span id="aAge"></span></p>
+  <p><b>Student Number:</b> <span id="aNumber"></span></p>
+  <p><b>Course:</b> <span id="aCourse"></span></p>
+  <p><b>Year & Section:</b> <span id="aYear"></span></p>
+  <p><b>CCS Status:</b> <span id="aCCS"></span></p>
+  <p><b>Registrar Status:</b> <span id="aRegistrar"></span></p>
+  <button onclick="hideAdminModal()">Close</button>
+</div>
+
+<script src="../js/app.js"></script>
+<script>
+  showAdminDashboard();
+</script>
+</body>
+</html>

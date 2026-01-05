@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registrar Requests</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<button class="back-btn" onclick="goBack()">← Back</button>
+
+<div class="sidebar">
+  <h3>Staff Portal</h3>
+  <button onclick="showStaffDashboard()">Dashboard</button>
+  <hr>
+  <button class="logout-btn" onclick="logout()">🚪 Logout</button>
+</div>
+
+<div class="content" id="staffContent">
+  <h2>Registrar Requests</h2>
+  <div id="staffRegistrarList">Loading requests...</div>
+</div>
+
+<script src="../js/app.js"></script>
+<script>
+  function showRegistrarStaff() {
+    const requests = JSON.parse(localStorage.getItem("registrarRequests")) || [];
+    let html = '';
+    requests.forEach((r,i)=>{
+      html += `<p>
+        👤 ${r.student} – <b>${r.status}</b>
+        ${r.status==="Pending"?`<button onclick="approveRegistrar(${i})">Approve</button>
+        <button onclick="rejectRegistrar(${i})">Reject</button>`:''}
+      </p>`;
+    });
+    document.getElementById("staffRegistrarList").innerHTML = html || '<p>No requests yet.</p>';
+  }
+
+  showRegistrarStaff();
+  setInterval(showRegistrarStaff, 2000);
+</script>
+</body>
+</html>

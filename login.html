@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="login-bg">
+
+<a class="back-link" href="index.html">← Back to role selection</a>
+<button class="back-btn" onclick="goBack()">← Back</button>
+
+<div class="login-card">
+  <div class="login-icon">→</div>
+
+  <h2 id="loginTitle">Login</h2>
+  <p class="subtitle">Access your clearance dashboard</p>
+
+  <div class="input-group">
+    <span class="icon">📧</span>
+    <input type="email" placeholder="Enter your email">
+  </div>
+
+  <div class="input-group">
+    <span class="icon">🔒</span>
+    <input type="password" placeholder="Enter your password">
+  </div>
+
+  <div class="login-options">
+    <label>
+      <input type="checkbox"> Remember me
+    </label>
+    <a href="#">Forgot password?</a>
+  </div>
+
+  <button class="login-btn" onclick="login()">Sign In</button>
+
+  <p class="footer-text">
+    Don’t have an account? <span>Contact Admin</span>
+  </p>
+</div>
+
+<script>
+  // Change title dynamically based on role
+  const role = localStorage.getItem("role");
+  if (role === "student") document.getElementById("loginTitle").innerText = "Student Login";
+  else if (role === "staff") document.getElementById("loginTitle").innerText = "Staff Login";
+  else document.getElementById("loginTitle").innerText = "Admin Login";
+</script>
+<script src="js/app.js"></script>
+</body>
+</html>

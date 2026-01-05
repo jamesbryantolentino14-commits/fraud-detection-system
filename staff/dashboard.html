@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Select Department</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="staff-center">
+
+<!-- Top bar -->
+<div class="top-bar right">
+  <button class="text-btn" onclick="logout()">Logout</button>
+</div>
+
+
+<!-- Center container -->
+<div class="dept-container">
+  <h2>Select Department</h2>
+  <p class="subtitle">Choose your department to continue</p>
+
+  <div class="dept-card" onclick="selectDepartment('Library')">
+    <span class="icon blue">📘</span>
+    <div>
+      <h4>Library</h4>
+      <small>Manage book borrowing and returns</small>
+    </div>
+    <span class="arrow">›</span>
+  </div>
+
+  <div class="dept-card" onclick="selectDepartment('Registrar')">
+    <span class="icon orange">📄</span>
+    <div>
+      <h4>Registrar</h4>
+      <small>Process clearance requests</small>
+    </div>
+    <span class="arrow">›</span>
+  </div>
+
+  <div class="dept-card" onclick="selectDepartment('Cashier')">
+    <span class="icon green">💲</span>
+    <div>
+      <h4>Cashier</h4>
+      <small>Verify payment documents</small>
+    </div>
+    <span class="arrow">›</span>
+  </div>
+
+  <div class="dept-card" onclick="selectDepartment('CCS')">
+    <span class="icon purple">🖥</span>
+    <div>
+      <h4>CCS</h4>
+      <small>Track student requirements</small>
+    </div>
+    <span class="arrow">›</span>
+  </div>
+</div>
+
+<script src="../js/app.js"></script>
+</body>
+</html>

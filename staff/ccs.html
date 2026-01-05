@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CCS Requests</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<button class="back-btn" onclick="goBack()">← Back</button>
+
+<div class="sidebar">
+  <h3>Staff Portal</h3>
+  <button onclick="showStaffDashboard()">Dashboard</button>
+  <hr>
+  <button class="logout-btn" onclick="logout()">🚪 Logout</button>
+</div>
+
+<div class="content" id="staffContent">
+  <h2>CCS Submissions</h2>
+  <div id="staffCCSList">Loading submissions...</div>
+</div>
+
+<script src="../js/app.js"></script>
+<script>
+  // Show CCS submissions in staff dashboard
+  function showCCSStaff() {
+    const submissions = JSON.parse(localStorage.getItem("submissions")) || [];
+    let html = '';
+    submissions.filter(s => s.department === "CCS").forEach((s,i)=>{
+      html += `<p>
+        👤 ${s.student} – ${s.file} – <b>${s.status}</b>
+        ${s.status==="Pending"?`<button onclick="approve(${i})">Approve</button>
+        <button onclick="reject(${i})">Reject</button>`:''}
+      </p>`;
+    });
+    document.getElementById("staffCCSList").innerHTML = html || '<p>No submissions yet.</p>';
+  }
+
+  showCCSStaff();
+  setInterval(showCCSStaff, 2000); // live update
+</script>
+</body>
+</html>

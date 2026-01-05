@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Library Dashboard</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<button class="back-btn" onclick="goBack()">← Back</button>
+
+
+<h2>Library Department</h2>
+
+<input type="text" id="searchInput" placeholder="Search student name or number"
+       onkeyup="filterStudents('Library')">
+
+<div id="staffContent"></div>
+
+<script src="../js/app.js"></script>
+<script>
+  loadDepartmentDashboard("Library");
+</script>
+
+</body>
+</html>
